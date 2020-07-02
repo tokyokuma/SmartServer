@@ -6,7 +6,7 @@ import socket
 # TCP/IP の場合は、SOCK_STREAM を使う
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     # IPアドレスとポートを指定
-    s.bind(('192.168.0.16', 55555))
+    s.bind(('LOCALHOST', 55555))
     print("Wait Connection")
     # 1 接続
     s.listen(1)
