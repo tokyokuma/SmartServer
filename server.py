@@ -2,6 +2,7 @@ import socket
 import ipget
 import argparse
 import irrp
+import copy
 
 # AF = IPv4
 # TCP/IP SOCK_STREAM
@@ -24,7 +25,14 @@ def main():
                 while True:
                     # receive data
                     data = conn.recv(1024)
+                    if 'on' in str(data):
+                        args.id = ["light:on"]
+                    elif 'off' in str(data):
+                        args.id = ["light:off"]
+                    else:
+                        pass
                     ir_remote_control.ir_playback(args)
+                    
                     if not data:
                         break
 
